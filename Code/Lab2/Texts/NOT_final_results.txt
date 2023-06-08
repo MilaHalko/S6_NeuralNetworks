@@ -1,0 +1,51 @@
+
+____________________________________________________________________
+N = 2000 
+TRAIN_PERCENTAGE = 0.9 
+EPOCHS = 700 
+LOSS = "mean_squared_logarithmic_error" 
+ACTIVATION = "relu"
+--------------------------------------------------------------------
+Feedforward
+Final Loss: 0.12474089115858078
+Final Test Loss: 0.13350148499011993
+Final Loss: 0.02548074908554554
+Final Test Loss: 0.02655838429927826
+
+Cascade
+Final Loss: 0.17863532900810242
+Final Test Loss: 0.2078365534543991
+Final Loss: 0.16266439855098724
+Final Test Loss: 0.18738174438476562
+
+Elman
+Final Loss: 1.0250072479248047
+Final Test Loss: 0.9625374674797058
+Final Loss: 14.881854057312012
+Final Test Loss: 14.049491882324219
+
+____________________________________________________________________
+N = 2000 
+TRAIN_PERCENTAGE = 0.9 
+EPOCHS = 700 
+LOSS = "mean_squared_logarithmic_error" 
+ACTIVATION = "relu"
+--------------------------------------------------------------------
+Elman
+Final Loss: 1.268001675605774
+Final Test Loss: 1.2332994937896729Final Loss: 0.1516851931810379
+Final Test Loss: 0.14746297895908356
+
+____________________________________________________________________
+N = 2000 
+TRAIN_PERCENTAGE = 0.9 
+EPOCHS = 700 
+LOSS = "mean_squared_logarithmic_error" 
+ACTIVATION = "relu"
+--------------------------------------------------------------------
+Elman
+Final Loss: 1.169492244720459
+Final Test Loss: 1.1722713708877563
+Final Loss: 0.21415163576602936
+Final Test Loss: 0.2278212010860443
+

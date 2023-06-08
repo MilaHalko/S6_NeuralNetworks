@@ -1,52 +1,42 @@
-import matplotlib.pyplot as plt
 import numpy as np
 
 from Lab2.NNmodels import *
+from Lab2.output import *
 
-TRAIN_PERCENTAGE = 0.75
-EPOCHS = 500
-LOSS = 'log_cosh'
+# PARAMETERS
+N = 1500
+TRAIN_PERCENTAGE = 0.8
+EPOCHS = 600
+LOSS = 'mean_squared_logarithmic_error'
 LEARNING_RATE = tf.keras.optimizers.schedules.ExponentialDecay(
     initial_learning_rate=0.001,
     decay_steps=100,
     decay_rate=0.99,
 )
-METRICS = [tf.keras.metrics.MeanSquaredError(), tf.keras.metrics.MeanAbsoluteError()]
 
-inputs = np.random.uniform(0, 10, (1500, 2))
-z = np.array([x ** 2 + y ** 2 for x, y in inputs])
-inputs_train = inputs[:int(len(inputs) * TRAIN_PERCENTAGE)]
-z_train = z[:int(len(z) * TRAIN_PERCENTAGE)]
-inputs_test = inputs[int(len(inputs) * TRAIN_PERCENTAGE):]
-z_test = z[int(len(z) * TRAIN_PERCENTAGE):]
+# DATA
+inputs = np.random.uniform(10, size=(N, 2))
+z = np.array([x ** 2 + x * y for x, y in inputs])
+inputs_train = inputs[:int(N * TRAIN_PERCENTAGE)]
+z_train = z[:int(N * TRAIN_PERCENTAGE)]
+inputs_test = inputs[int(N * TRAIN_PERCENTAGE):]
+z_test = z[int(N * TRAIN_PERCENTAGE):]
 
 
 def train_model(model):
-    model.compile(loss=LOSS, optimizer=tf.keras.optimizers.SGD(learning_rate=LEARNING_RATE), metrics=METRICS)
-    model.summary()
+    if model.name == 'Feedforward':
+        model.compile(loss=LOSS, optimizer=tf.keras.optimizers.Adamax(learning_rate=LEARNING_RATE))
+    else:
+        model.compile(loss=LOSS, optimizer=tf.keras.optimizers.SGD(learning_rate=LEARNING_RATE))
     history = model.fit(inputs_train, z_train, epochs=EPOCHS, validation_data=(inputs_test, z_test), verbose=0)
-    output(history)
-
-
-def output(history):
-    print("Train Loss:", history.history['loss'][0])
-    print("Test Loss:", history.history['val_loss'][0])
-    print("Final Loss:", history.history['loss'][-1])
-    print("Final MSE:", history.history['mean_squared_error'][-1])
-    print("Final MAE:", history.history['mean_absolute_error'][-1])
-    print("\n\n\n")
-
-    plt.title('Training loss (log_cosh)')
-    plt.xlabel('Epochs')
-    plt.ylabel('Loss')
-    plt.plot(history.history['loss'], label='Train loss')
-    plt.plot(history.history['val_loss'], label='Test loss')
-    plt.grid()
-    plt.legend()
-    plt.show()
+    output(model.name, history)
 
 
 def main():
+    set_txt_name('final_results2')
+    test_start('N = 2000 \nTRAIN_PERCENTAGE = 0.9 \nEPOCHS = 700 \n' +
+               'LOSS = "mean_squared_logarithmic_error" \nACTIVATION = "relu" \nFUNCTION = x^2 + xy')
+
     train_model(get_feedforward_model([10]))
     train_model(get_feedforward_model([20]))
     train_model(get_cascade_model([20]))

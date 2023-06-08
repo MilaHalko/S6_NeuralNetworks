@@ -1,0 +1,48 @@
+DIFFERENT ACTIVATION FUNCTIONS FOR FEEDFORWARD NEURAL NETWORKS
+RESULT: ReLU is the best activation function for this problem
+______________________________________________________________
+LAYERS: [10]
+--------------------------------------------------------------
+ReLU
+Train Loss: 53.84306716918945
+Test Loss: 56.00739669799805
+Final Loss: 4.513086318969727
+Final Test Loss: 5.158495903015137
+
+SIGMOID
+Train Loss: 55.25721740722656
+Test Loss: 58.08066177368164
+Final Loss: 28.760988235473633
+Final Test Loss: 30.669296264648438
+
+TAHN
+Train Loss: 53.59685516357422
+Test Loss: 56.26979064941406
+Final Loss: 21.00381851196289
+Final Test Loss: 22.921096801757812
+
+
+______________________________________________________________
+LAYERS: [10, 10]
+--------------------------------------------------------------
+ReLU
+Train Loss: 50.719871520996094
+Test Loss: 51.81575012207031
+Final Loss: 3.68312406539917
+Final Test Loss: 4.0973615646362305
+
+SIGMOID
+Train Loss: 55.65268325805664
+Test Loss: 58.44258499145508
+Final Loss: 26.124061584472656
+Final Test Loss: 27.731294631958008
+
+
+TAHN
+Train Loss: 53.59685516357422
+Test Loss: 56.26979064941406
+Final Loss: 20.00381851196289
+Final Test Loss: 21.921096801757812
+
+
+

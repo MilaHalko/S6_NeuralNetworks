@@ -1,0 +1,114 @@
+Model: "Feedforward"
+_________________________________________________________________
+ Layer (type)                Output Shape              Param #
+=================================================================
+ input_1 (InputLayer)        [(None, 2)]               0
+
+ dense (Dense)               (None, 10)                30
+
+ dense_1 (Dense)             (None, 1)                 11
+=================================================================
+Total params: 41
+Final Loss: 6.796525478363037
+Final Test Loss: 7.693085193634033
+
+
+Model: "Feedforward"
+_________________________________________________________________
+ Layer (type)                Output Shape              Param #
+=================================================================
+ input_2 (InputLayer)        [(None, 2)]               0
+
+ dense_2 (Dense)             (None, 20)                60
+
+ dense_3 (Dense)             (None, 1)                 21
+=================================================================
+Total params: 81
+Final Loss: 3.8442177772521973
+Final Test Loss: 4.16838264465332
+
+
+Model: "Cascade"
+__________________________________________________________________________________________________
+ Layer (type)                   Output Shape         Param #     Connected to
+==================================================================================================
+ input_3 (InputLayer)           [(None, 2)]          0           []
+
+ dense_4 (Dense)                (None, 20)           60          ['input_3[0][0]']
+
+ concatenate (Concatenate)      (None, 22)           0           ['input_3[0][0]',
+                                                                  'dense_4[0][0]']
+
+ dense_5 (Dense)                (None, 1)            23          ['concatenate[0][0]']
+==================================================================================================
+Total params: 83
+Final Loss: 3.6326663494110107
+Final Test Loss: 3.85872745513916
+
+
+Model: "Cascade"
+__________________________________________________________________________________________________
+ Layer (type)                   Output Shape         Param #     Connected to
+==================================================================================================
+ input_4 (InputLayer)           [(None, 2)]          0           []
+
+ dense_6 (Dense)                (None, 10)           30          ['input_4[0][0]']
+
+ concatenate_1 (Concatenate)    (None, 12)           0           ['input_4[0][0]',
+                                                                  'dense_6[0][0]']
+
+ dense_7 (Dense)                (None, 10)           130         ['concatenate_1[0][0]']
+
+ concatenate_2 (Concatenate)    (None, 22)           0           ['concatenate_1[0][0]',
+                                                                  'dense_7[0][0]']
+
+ dense_8 (Dense)                (None, 1)            23          ['concatenate_2[0][0]']
+==================================================================================================
+Total params: 183
+Final Loss: 0.5280091166496277
+Final Test Loss: 0.5978917479515076
+
+
+Model: "Elman"
+_________________________________________________________________
+ Layer (type)                Output Shape              Param #
+=================================================================
+ input_5 (InputLayer)        [(None, 2)]               0
+
+ tf.expand_dims (TFOpLambda)  (None, 1, 2)             0
+
+ simple_rnn (SimpleRNN)      (None, 15)                270
+
+ dense_9 (Dense)             (None, 1)                 16
+=================================================================
+Total params: 286
+Final Loss: 17.992422103881836
+Final Test Loss: 17.97995376586914
+
+
+Model: "Elman"
+_________________________________________________________________
+ Layer (type)                Output Shape              Param #
+=================================================================
+ input_6 (InputLayer)        [(None, 2)]               0
+
+ tf.expand_dims_1 (TFOpLambd  (None, 1, 2)             0
+ a)
+
+ simple_rnn_1 (SimpleRNN)    (None, 5)                 40
+
+ tf.expand_dims_2 (TFOpLambd  (None, 1, 5)             0
+ a)
+
+ simple_rnn_2 (SimpleRNN)    (None, 5)                 55
+
+ tf.expand_dims_3 (TFOpLambd  (None, 1, 5)             0
+ a)
+
+ simple_rnn_3 (SimpleRNN)    (None, 5)                 55
+
+ dense_10 (Dense)            (None, 1)                 6
+=================================================================
+Total params: 156
+Final Loss: 1.5210412740707397
+Final Test Loss: 1.5153363943099976

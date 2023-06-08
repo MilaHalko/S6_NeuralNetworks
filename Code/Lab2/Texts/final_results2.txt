@@ -1,0 +1,32 @@
+____________________________________________________________________
+N = 2000 
+TRAIN_PERCENTAGE = 0.9 
+EPOCHS = 700 
+LOSS = "mean_squared_logarithmic_error" 
+ACTIVATION = "relu" 
+FUNCTION = x^2 + xy
+--------------------------------------------------------------------
+Feedforward
+Final Loss: 0.05356655642390251
+Final Test Loss: 0.047136228531599045
+
+Feedforward
+Final Loss: 15.876619338989258
+Final Test Loss: 15.609990119934082
+
+Cascade
+Final Loss: 15.876619338989258
+Final Test Loss: 15.609990119934082
+
+Cascade
+Final Loss: 15.87662124633789
+Final Test Loss: 15.609990119934082
+
+Elman
+Final Loss: 1.1797207593917847
+Final Test Loss: 1.1497026681900024
+
+Elman
+Final Loss: 0.17060327529907227
+Final Test Loss: 0.15941643714904785
+
