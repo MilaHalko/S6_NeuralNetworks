@@ -33,7 +33,7 @@ def train_model(model):
 
 
 def main():
-    set_txt_name('final_results2')
+    set_txt_name('final_results3')
     test_start('N = 2000 \nTRAIN_PERCENTAGE = 0.9 \nEPOCHS = 700 \n' +
                'LOSS = "mean_squared_logarithmic_error" \nACTIVATION = "relu" \nFUNCTION = x^2 + xy')
 
