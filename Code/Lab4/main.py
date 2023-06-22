@@ -10,5 +10,4 @@ VALID_SIZE = 5000
 
 train_ds, test_ds, valid_ds = get_dataset_representation(TRAIN_SIZE, TEST_SIZE, VALID_SIZE)
 
-CLASS_NAMES = ['airplane', 'automobile', 'bird', 'cat', 'deer', 'dog', 'frog', 'horse', 'ship', 'truck']
 
